@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Crash Summaries";
+}
+
+@model List<utah_crashes>
+
+<div class="row m-1 p-1">
+
+    <div class="col-10">
+
+        <table class="table table-bordered table-striped">
+
+            <thead class="font-weight-bold">
+                <tr>
+                    <td>Id</td>
+                    <td>Crash DateTime</td>
+                    <td>Main Road Name</td>
+                    <td>County</td>
+                    <td>City</td>
+                    <td>Severity</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var c in Model)
+                {
+                <tr>
+                    <td><a asp-controller="Home" asp-action="Details" asp-route-CrashId="@c.CRASH_ID">More Details</a></td>
+
+                    <td>@c.CRASH_ID</td>
+                    <td>@c.CRASH_DATETIME</td>
+                    <td>@c.MAIN_ROAD_NAME</td>
+                    <td>@c.COUNTY_NAME</td>
+                    <td>@c.CITY</td>
+                    <td>@c.Severity</td>
+
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-CrashId="@c.CRASH_ID">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-CrashId="@c.CRASH_ID">Delete</a></td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
