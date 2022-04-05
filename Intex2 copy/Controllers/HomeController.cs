@@ -93,10 +93,5 @@ namespace Intex2.Controllers
 
             return RedirectToAction("Summary");
         }
-
-        public IActionResult Analysis()
-        {
-            return View();
-        }
     }
 }

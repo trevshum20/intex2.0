@@ -31,7 +31,6 @@ namespace Intex2
             {
                 options.UseMySql(Configuration["ConnectionStrings:CrashDbConnection"]);
             });
-            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +50,6 @@ namespace Intex2
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseAuthentication();
 
             app.UseAuthorization();
 
@@ -60,8 +58,6 @@ namespace Intex2
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.MapRazorPages();
             });
         }
     }
